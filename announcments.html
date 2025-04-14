@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farewell Party Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Musicals&display=swap">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: lavender;
+    }
+
+    .logo {
+  font-family: 'Pacifico', cursive; 
+  font-size: 27px; /* Increased font size for better visibility */
+  color: transparent; /* Transparent text color */
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: 'Farewell Party';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #ff6ec4; /* Pink color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+.logo::after {
+  content: 'Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #7873f5; /* Purple color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+  animation-delay: 0.75s; /* Delay for second animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4; /* Pink glow */
+  }
+  to {
+    text-shadow: 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #ff6ec4; /* Intense pink glow */
+  }
+}
+    
+    /* Navigation Bar Styles */
+    nav {
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 15px;
+      border: 2px solid #fff;
+    }
+
+    .nav-links li a:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+      /* Welcome Message Section Styles */
+.welcome-section {
+    background-image: url('https://i.pinimg.com/originals/cd/dd/36/cddd3641eb05bee2dea727a88f7ca2a5.gif'); /* Added background image */
+  background-size: contain; /* Adjusted */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center;
+  height: 99vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color: #9370DB;
+}
+
+    .welcome-container {
+      max-width: 600px;
+    }
+
+    .welcome-container h2 {
+      font-size: 70px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 10px #7873f5,
+                   0 0 20px #7873f5,
+                   0 0 30px #7873f5,
+                   0 0 40px #7873f5,
+                   0 0 50px #7873f5;
+     text-align: center;
+    }
+
+    .welcome-container p {
+      font-size: 40px;
+    }
+/* Form Styles */
+.announcement-container {
+  max-width: 600px;
+   
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 20px;
+  box-shadow: 0 0 40px rgba(208, 121, 246, 0.1);
+  border:  10px solid  #7873f5;
+}
+
+.announcement-container h2 {
+  color: #7873f5;
+  text-shadow: 0 0 10px rgb(219, 99, 195),
+               0 0 20px white,
+               0 0 30px white,
+               0 0 40px white,
+               0 0 50px rgb(219, 99, 195);
+}
+
+#announcement-form label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+#announcement-form input[type="text"],
+#announcement-form select,
+#announcement-form textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+}
+
+#announcement-form textarea {
+  height: 100px;
+}
+
+#announcement-form button {
+  padding: 10px 20px;
+  background-color: #7873f5;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#announcement-form button:hover {
+  background-color: #5f5bd5;
+}
+
+/* Table Styles */
+.announcement-table-section {
+  
+  max-width: 800px;
+  margin: 50px auto;
+}
+
+.announcement-container h2 {
+  color: #7873f5;
+}
+
+#announcement-table {
+  width: 100%;
+  border-collapse: collapse;
+  border: 1px solid #dcdcdc;
+}
+
+#announcement-table th,
+#announcement-table td {
+  padding: 10px;
+  border: 1px solid #dcdcdc;
+  text-align: left;
+}
+
+#announcement-table th {
+  background-color: #7873f5;
+  color: #fff;
+}
+
+   
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/menuSuggestion">Menu Suggestions</a></li>
+        <li><a href="/performance">Performance Volunteer</a></li>
+        <li><a href="/budgetTracking">Budget Tracking</a></li>
+        <li><a href="/taskAssignment">Task Assignment</a></li>
+        <li><a href="/attendenceTracking">Attendance Tracking</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/teacherRegistration">Teachers Registration</a></li>
+        <li><a href="/invitation">Invitations</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-container">
+      <h2>Announcements</h2>
+    </div>
+  </section>
+  <!-- Announcement Form Section -->
+  <section class="announcement-form-section">
+    <div class="announcement-container">
+      <h2>Add Announcement</h2>
+      <form id="announcement-form" action="/announcementForm" method="POST">
+        <label for="announcement-type">Announcement Type:</label>
+        <select id="announcement-type" name="announcement-type">
+          <option value="information">Information Based</option>
+          <option value="deadline">Deadline Page</option>
+        </select>
+        <label for="announcement-method">Announcement Method:</label>
+        <select id="announcement-method" name="announcement-method">
+          <option value="email">Email</option>
+          <option value="text">Text</option>
+          <option value="mail">Mail</option>
+          <option value="call">Call</option>
+        </select>
+        <label for="announcement-heading">Announcement Heading:</label>
+        <input type="text" id="announcement-heading" name="announcement-heading" required>
+        <label for="announcement-number">Announcement Number:</label>
+        <input type="text" id="announcement-number" name="announcement-number" required>
+        <label for="announcement-text">Announcement Text:</label>
+        <textarea id="announcement-text" name="announcement-text" required></textarea>
+        <div id="deadline-field" style="display: none;">
+          <label for="announcement-deadline">Deadline:</label>
+          <input type="date" id="announcement-deadline" name="announcement-deadline">
+        </div>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Announcement Table Section -->
+  <section class="announcement-table-section">
+    <div class="announcement-container">
+      <h2>Announcements Table</h2>
+      <table id="announcement-table">
+        <thead>
+          <tr>
+            <th>Type</th>
+            <th>Method</th>
+            <th>Heading</th>
+            <th>Number</th>
+            <th>Text</th>
+            <th>Deadline</th>
+            <th>Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Data will be dynamically inserted here -->
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <script>
+    document.getElementById('announcement-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      var type = document.getElementById('announcement-type').value;
+      var method = document.getElementById('announcement-method').value;
+      var heading = document.getElementById('announcement-heading').value;
+      var number = document.getElementById('announcement-number').value;
+      var text = document.getElementById('announcement-text').value;
+      var date = new Date().toLocaleDateString(); // Get current date
+      var deadline = type === 'deadline' ? document.getElementById('announcement-deadline').value : ''; // Get deadline only if type is deadline
+
+      var newRow = document.createElement('tr');
+      newRow.innerHTML = `
+        <td>${type}</td>
+        <td>${method}</td>
+        <td>${heading}</td>
+        <td>${number}</td>
+        <td>${text}</td>
+        <td>${deadline}</td>
+        <td>${date}</td>
+      `;
+
+      document.getElementById('announcement-table').getElementsByTagName('tbody')[0].appendChild(newRow);
+      document.getElementById('announcement-form').reset(); // Reset form fields
+    });
+
+    // Show/hide deadline field based on announcement type
+    document.getElementById('announcement-type').addEventListener('change', function() {
+      var deadlineField = document.getElementById('deadline-field');
+      if (this.value === 'deadline') {
+        deadlineField.style.display = 'block';
+      } else {
+        deadlineField.style.display = 'none';
+      }
+    });
+  </script>
+</body>
+</html>

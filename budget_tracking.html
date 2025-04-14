@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farewell Party Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins&display=swap">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+     body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: lavender;
+    }
+
+    .logo {
+  font-family: 'Pacifico', cursive; 
+  font-size: 27px; /* Increased font size for better visibility */
+  color: transparent; /* Transparent text color */
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: 'Farewell Party';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #ff6ec4; /* Pink color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+.logo::after {
+  content: 'Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #7873f5; /* Purple color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+  animation-delay: 0.75s; /* Delay for second animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4; /* Pink glow */
+  }
+  to {
+    text-shadow: 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #ff6ec4; /* Intense pink glow */
+  }
+}
+    
+    /* Navigation Bar Styles */
+    nav {
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 15px;
+      border: 2px solid #fff;
+    }
+
+    .nav-links li a:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+    /* Welcome Message Section Styles */
+    .welcome-section {
+      background-image: url('https://i.pinimg.com/originals/62/1f/82/621f8226534f9bfc8f6b28dd47a7158d.gif');
+      background-size: centre;
+      background-attachment: fixed; /* Background image does not scroll with the page */
+      height:  120vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .welcome-container {
+      max-width: 600px;
+    }
+
+    .welcome-container h2 {
+      font-size: 120px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 10px #fd93d2,
+                   0 0 20px #fd93d2,
+                   0 0 30px #fd93d2,
+                   0 0 40px #fd93d2,
+                   0 0 70px #fd93d2;
+    }
+
+    .welcome-container p {
+      font-size: 40px;
+    }
+
+    /* Budget Overview Section Styles */
+    .budget-section {
+      padding: 10px;
+      box-shadow: 10px  #cf62a4;
+      background-color: lavender;
+      
+    }
+
+    .budget-table {
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 20px;
+    }
+    .budget-section h2 
+    {
+      font-size: 20px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: black;
+      text-shadow: 0 0 10px #7873f5,
+                   0 0 20px #7873f5,
+                   0 0 30px #7873f5,
+                   0 0 40px #7873f5,
+                   0 0 50px #7873f5;
+     font-weight: bold;
+    }
+
+    .budget-table th, .budget-table td {
+      padding: 10px;
+      border: 5px solid #7873f5;
+     color: #ff6ec4;
+    font-weight: bolder;
+    
+                   
+    }
+
+    /* Expense Tracking Section Styles */
+    .expense-section {
+      padding: 10px;
+      background-color: lavender;
+    
+      background-attachment: fixed;
+      margin-bottom: 40px;
+
+    }
+    .expense-section h2 
+    {
+      font-size: 20px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: rgb(153, 18, 243);
+      text-shadow: 0 0 10px white,
+                   0 0 20px white,
+                   0 0 30px white,
+                   0 0 40px  white,
+                   0 0 50px white;
+     font-weight: bold;
+    }
+
+    .expense-form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(25px);
+      border-radius: 15px;
+      padding: 50px;
+      max-width: 400px;
+      box-shadow: 0 0 30px rgba(0, 0, 0, 0.5); /* Adding box shadow */
+      background-image: url('https://i.pinimg.com/564x/52/a1/ce/52a1ce9964894b26329554af51cc16b1.jpg');
+      background-size: centre;
+      background-attachment: fixed; /* Background image does not scroll with the page */
+    }
+
+    .expense-form input[type="text"], .expense-form input[type="number"], .expense-form input[type="date"] {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .expense-form select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .expense-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+
+    .expense-form button {
+      padding: 10px 20px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      border: none;
+      border-radius: 5px;
+      color: #fff;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .expense-form button:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+    /* Budget Adjustment Section Styles */
+.budget-adjustment-section {
+  padding: 10px;
+  margin-top: 20px;
+  background-color: lavender;
+  background-image: url('https://i.pinimg.com/564x/52/21/68/522168b93b930352ed66986825b5eba7.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+}
+
+.adjustment-container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.adjustment-container h2 {
+  font-size: 32px;
+  margin-bottom: 20px;
+  color: #7873f5;
+}
+
+.adjustment-container label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.adjustment-container select, .adjustment-container input[type="number"] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+.adjustment-container button {
+  padding: 10px 20px;
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.adjustment-container button:hover {
+  background: linear-gradient(to right, #7873f5, #ff6ec4);
+}
+/* New Section Styles */
+.new-section {
+  padding: 50px;
+  background-color: #fff;
+  
+}
+
+.container-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1.5fr);
+  grid-gap: 30px;
+ 
+  margin-bottom: 0px;
+  
+}
+
+.container-box {
+  background-color: #f0f0f0;
+  padding: 40px;
+  border-radius: 10px;
+  text-shadow: 0 0 10px #ff6ec4,
+                   0 0 20px #ff6ec4,
+                   0 0 30px #ff6ec4,
+                   0 0 40px #ff6ec4,
+                   0 0 50px #ff6ec4;
+   
+  
+}
+
+.container-box h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+  color: #7873f5 ;
+}
+.container-box canvas {
+  width: 100%; /* Ensure canvas takes up full width of container */
+  height: 100%;
+}
+
+.container-box p {
+  font-size: 16px;
+}
+
+
+
+
+
+  </style>
+</head>
+<body>
+
+ <!-- Navigation Bar -->
+ <nav>
+    <div class="container">
+      <h1 class="logo">Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/menuSuggestion">Menu Suggestions</a></li>
+        <li><a href="/performance">Performance Volunteer</a></li>
+        <li><a href="/budgetTracking">Budget Tracking</a></li>
+        <li><a href="/taskAssignment">Task Assignment</a></li>
+        <li><a href="/attendenceTracking">Attendance Tracking</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/teacherRegistration">Teachers Registration</a></li>
+        <li><a href="/invitation">Invitations</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-container">
+      <h2>Budget Tracking</h2>
+    </div>
+  </section> <!-- Navigation Bar -->
+  
+
+  <!-- Budget Overview Section -->
+  <section class="budget-section">
+    <table class="budget-table">
+        <h2>Budget Overview</h2>
+        <thead>
+          <tr>
+            <th>Category</th>
+            <th>Allocated Budget</th>
+            <th>Spent</th>
+            <th>Remaining</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Venue</td>
+            <td>$1000</td>
+            <td>$500</td>
+            <td>$500</td>
+          </tr>
+          <tr>
+            <td>Catering</td>
+            <td>$1500</td>
+            <td>$1000</td>
+            <td>$500</td>
+          </tr>
+          <tr>
+            <td>Decorations</td>
+            <td>$800</td>
+            <td>$300</td>
+            <td>$500</td>
+          </tr>
+          <tr>
+            <td>Entertainment</td>
+            <td>$1200</td>
+            <td>$800</td>
+            <td>$400</td>
+          </tr>
+    
+        </tbody>
+      </table>
+      
+  </section>
+
+  <!-- Expense Tracking Section -->
+  <section class="expense-section">
+    <div class="expense-form">
+      <h2>Expense Tracking</h2>
+      <form id="expense-form">
+        <input type="text" name="expenseName" placeholder="Expense Name" required><br>
+        <select name="category" required>
+          <option value="" selected disabled>Select Category</option>
+          <option value="venue">Venue</option>
+          <option value="catering">Catering</option>
+          <option value="decorations">Decorations</option>
+          <option value="entertainment">Entertainment</option>
+          <!-- Add more options as needed -->
+        </select><br>
+        <input type="number" name="amount" placeholder="Amount Spent" required><br>
+        <input type="date" name="date" required><br>
+        <textarea name="description" placeholder="Description"></textarea><br>
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </section>
+  <!-- Budget Adjustment Section -->
+<section class="budget-adjustment-section">
+    <div class="adjustment-container">
+      <h2>Budget Adjustment</h2>
+      <form id="budget-adjustment-form">
+        <label for="category">Select Category:</label>
+        <select name="category" id="category-select" required>
+          <option value="" selected disabled>Select Category</option>
+          <option value="venue">Venue</option>
+          <option value="catering">Catering</option>
+          <option value="decorations">Decorations</option>
+          <option value="entertainment">Entertainment</option>
+          <!-- Add more options as needed -->
+        </select>
+        <label for="adjustment-type">Adjustment Type:</label>
+        <select name="adjustment-type" id="adjustment-type-select" required>
+          <option value="" selected disabled>Select Adjustment Type</option>
+          <option value="increase">Increase Budget</option>
+          <option value="decrease">Decrease Budget</option>
+        </select>
+        <label for="amount">Amount:</label>
+        <input type="number" name="amount" id="amount" placeholder="Enter Amount" required>
+        <button type="submit">Apply Adjustment</button>
+      </form>
+    </div>
+  </section>
+
+   <!-- New Section -->
+   <section class="new-section">
+    <div class="container-grid">
+      <!-- Container 1 for Line Chart -->
+      <div class="container-box">
+        <h2>Budget Overview Line Chart</h2>
+        <canvas id="lineChart"></canvas>
+      </div>
+      <!-- Container 2 for Pie Chart -->
+      <div class="container-box">
+        <h2>Budget Overview Pie Chart</h2>
+        <canvas id="pieChart"></canvas>
+      </div>
+      <!-- Container 3 for Radar Chart -->
+      <div class="container-box">
+        <h2>Budget Overview Radar Chart</h2>
+        <canvas id="radarChart"></canvas>
+      </div>
+      <!-- Container 4 for Rounded Bar Chart -->
+      <div class="container-box">
+        <h2>Budget Overview Rounded Bar Chart</h2>
+        <canvas id="roundedBarChart"></canvas>
+      </div>
+    </div>
+  </section>
+  <script>
+  document.addEventListener("DOMContentLoaded", function() {
+    const expenseForm = document.getElementById("expense-form");
+    const adjustmentForm = document.getElementById("budget-adjustment-form");
+    const budgetTable = document.querySelector(".budget-table tbody");
+  
+    function updateBudgetOverview() {
+      const categoryRows = budgetTable.querySelectorAll("tr");
+      categoryRows.forEach(row => {
+        const allocatedBudget = parseFloat(row.cells[1].textContent.replace("$", ""));
+        const spent = parseFloat(row.cells[2].textContent.replace("$", ""));
+        const remaining = parseFloat(row.cells[3].textContent.replace("$", ""));
+        row.cells[3].textContent = `$${(allocatedBudget - spent).toFixed(2)}`;
+      });
+    }
+  
+    function updateCharts() {
+      const categories = [];
+      const allocatedBudgets = [];
+      const spentAmounts = [];
+      const remainingAmounts = [];
+  
+      budgetTable.querySelectorAll("tr").forEach(row => {
+        categories.push(row.cells[0].textContent);
+        allocatedBudgets.push(parseFloat(row.cells[1].textContent.replace("$", "")));
+        spentAmounts.push(parseFloat(row.cells[2].textContent.replace("$", "")));
+        remainingAmounts.push(parseFloat(row.cells[3].textContent.replace("$", "")));
+      });
+  
+      const lineChartData = {
+        labels: categories,
+        datasets: [
+          { label: 'Allocated Budget', borderColor: 'rgb(255, 105, 180)', backgroundColor: 'rgba(255, 105, 180, 0.2)', data: allocatedBudgets },
+          { label: 'Spent', borderColor: 'rgb(186, 85, 211)', backgroundColor: 'rgba(186, 85, 211, 0.2)', data: spentAmounts },
+          { label: 'Remaining', borderColor: 'rgb(30, 144, 255)', backgroundColor: 'rgba(30, 144, 255, 0.2)', data: remainingAmounts }
+        ]
+      };
+  
+      const pieChartData = {
+        labels: ['Allocated Budget', 'Spent', 'Remaining'],
+        datasets: [{
+          label: 'Budget Overview',
+          backgroundColor: ['rgb(255, 105, 180)', 'rgb(186, 85, 211)', 'rgb(30, 144, 255)'],
+          data: [allocatedBudgets.reduce((a, b) => a + b, 0), spentAmounts.reduce((a, b) => a + b, 0), remainingAmounts.reduce((a, b) => a + b, 0)]
+        }]
+      };
+  
+      const radarChartData = {
+        labels: categories,
+        datasets: [
+          { label: 'Allocated Budget', data: allocatedBudgets, backgroundColor: 'rgba(255, 105, 180, 0.2)', borderColor: 'rgb(255, 105, 180)', pointBackgroundColor: 'rgb(255, 105, 180)' },
+          { label: 'Spent', data: spentAmounts, backgroundColor: 'rgba(186, 85, 211, 0.2)', borderColor: 'rgb(186, 85, 211)', pointBackgroundColor: 'rgb(186, 85, 211)' },
+          { label: 'Remaining', data: remainingAmounts, backgroundColor: 'rgba(30, 144, 255, 0.2)', borderColor: 'rgb(30, 144, 255)', pointBackgroundColor: 'rgb(30, 144, 255)' }
+        ]
+      };
+  
+      const roundedBarChartData = {
+        labels: categories,
+        datasets: [{
+          label: 'Rounded Bar Chart',
+          data: allocatedBudgets,
+          backgroundColor: ['rgba(255, 105, 180, 0.7)', 'rgba(186, 85, 211, 0.7)', 'rgba(30, 144, 255, 0.7)']
+        }]
+      };
+  
+      const lineChart = new Chart(document.getElementById('lineChart').getContext('2d'), { type: 'line', data: lineChartData });
+      const pieChart = new Chart(document.getElementById('pieChart').getContext('2d'), { type: 'pie', data: pieChartData, options: { plugins: { legend: { position: 'right' } } } });
+      const radarChart = new Chart(document.getElementById('radarChart').getContext('2d'), { type: 'radar', data: radarChartData, options: { plugins: { legend: { position: 'right' } } } });
+      const roundedBarChart = new Chart(document.getElementById('roundedBarChart').getContext('2d'), { type: 'bar', data: roundedBarChartData, options: { indexAxis: 'y', plugins: { legend: { display: false } } } });
+    }
+  
+    expenseForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const expenseName = this.elements["expenseName"].value;
+      const category = this.elements["category"].value;
+      const amount = parseFloat(this.elements["amount"].value);
+      const date = this.elements["date"].value;
+      const description = this.elements["description"].value;
+  
+      budgetTable.querySelectorAll("tr").forEach(row => {
+        if (row.cells[0].textContent.toLowerCase() === category.toLowerCase()) {
+          let spent = parseFloat(row.cells[2].textContent.replace("$", ""));
+          row.cells[2].textContent = `$${(spent + amount).toFixed(2)}`;
+          row.cells[3].textContent = `$${(parseFloat(row.cells[1].textContent.replace("$", "")) - spent - amount).toFixed(2)}`;
+        }
+      });
+  
+      updateCharts();
+      this.reset();
+    });
+  
+    adjustmentForm.addEventListener("submit", function(event) {
+      event.preventDefault();
+      const category = this.elements["category"].value;
+      const adjustmentType = this.elements["adjustment-type"].value;
+      const amount = parseFloat(this.elements["amount"].value);
+  
+      budgetTable.querySelectorAll("tr").forEach(row => {
+        if (row.cells[0].textContent.toLowerCase() === category.toLowerCase()) {
+          let allocatedBudget = parseFloat(row.cells[1].textContent.replace("$", ""));
+          if (adjustmentType === "increase") {
+            allocatedBudget += amount;
+          } else if (adjustmentType === "decrease") {
+            allocatedBudget -= amount;
+            if (allocatedBudget < 0) allocatedBudget = 0;
+          }
+          row.cells[1].textContent = `$${allocatedBudget.toFixed(2)}`;
+          row.cells[3].textContent = `$${(allocatedBudget - parseFloat(row.cells[2].textContent.replace("$", ""))).toFixed(2)}`;
+        }
+      });
+  
+      updateCharts();
+      this.reset();
+    });
+  
+    updateCharts();
+  });
+
+  
+</script>  
+  
+</body>
+</html>

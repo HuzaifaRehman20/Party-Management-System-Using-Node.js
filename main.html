@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <meta charset="UTF-8">
+ <title>Login Page</title>
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="/css/style.css">
+ <link rel="stylesheet" href="/css/utilities.css">
+ <style>
+  .form {
+    width: 100%;
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+   }
+
+  .form h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+   }
+
+  .form .form-control {
+    margin-bottom: 20px;
+   }
+
+  .form label {
+   display: block;
+   margin-bottom: 5px;
+   font-size: 18px;
+   font-weight: 300;
+  }
+
+  .form {
+   width: 100%;
+   max-width: 500px;
+   margin: 50px auto;
+   padding: 30px;
+   background-color: #f5f5f5;
+   border-radius: 10px;
+   box-shadow: 0px 0px 10px rgba(0,0,0,0.1);
+  }
+
+.form h2 {
+    margin-bottom: 20px;
+    font-size: 30px;
+    font-weight: 300;
+    text-align: center;
+  }
+
+ .form .form-control {
+   margin-bottom: 20px;
+  }
+
+ .form label {
+   display: block;
+   margin-bottom: 5px;
+   font-size: 18px;
+   font-weight: 300;
+  }
+ .form input {
+   width: 100%;
+   padding: 10px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   font-size: 16px;
+  }
+
+  .form input:focus {
+    outline: none;
+    border: 1px solid #28a745;
+   }
+
+   .form select {
+   width: 100%;
+   padding: 10px;
+   border-radius: 5px;
+   border: 1px solid #ccc;
+   font-size: 16px;
+  }
+
+  .form input:focus,
+  .form select:focus {
+    outline: none;
+    border: 1px solid #28a745;
+  }
+</style>
+</head>
+<body>
+    <div class="container">
+        <form class="form" action="/signup" method="POST">
+            <h2>Add Data</h2>
+            <div class="form-control">
+              <label for="name">Customer Name</label>
+              <input type="text" name="Name" id="name" required>
+          </div>
+            <div class="form-control">
+                <label for="Username">Contact Name</label>
+                <input type="text" name="username" id="username" required>
+            </div>
+            <div class="form-control">
+                <label for="password">Address</label>
+                <input type="text" name="password" id="password" required>
+            </div>
+            <div class="form-control">
+                <label for="password">City</label>
+                <input type="text" name="passwordconfirm" id="passwordconfirm" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

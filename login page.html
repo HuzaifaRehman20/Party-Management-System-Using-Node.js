@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Farewell Party Management System</title>
+  <style>
+      /* General Styles */
+      body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .logo {
+  font-family: 'Pacifico', cursive; 
+  font-size: 27px; /* Increased font size for better visibility */
+  color: transparent; /* Transparent text color */
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: 'Farewell Party';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #ff6ec4; /* Pink color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+.logo::after {
+  content: 'Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #7873f5; /* Purple color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+  animation-delay: 0.75s; /* Delay for second animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4; /* Pink glow */
+  }
+  to {
+    text-shadow: 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #ff6ec4; /* Intense pink glow */
+  }
+}
+    
+    /* Navigation Bar Styles */
+    nav {
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 15px;
+      border: 2px solid #fff;
+    }
+
+    .nav-links li a:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+    /* Welcome Message Section Styles */
+    .welcome-section {
+      background-image: url('https://i.pinimg.com/originals/62/1f/82/621f8226534f9bfc8f6b28dd47a7158d.gif');
+      background-size: cover;
+      background-attachment: fixed;
+      height:  99vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .welcome-container {
+      max-width: 600px;
+    }
+
+    .welcome-container h2 {
+      font-size: 120px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 10px #fd93d2,
+                   0 0 20px #fd93d2,
+                   0 0 30px #fd93d2,
+                   0 0 40px #fd93d2,
+                   0 0 50px #fd93d2;
+    }
+
+    .welcome-container p {
+      font-size: 40px;
+    }
+    /* Glassmorphic Container */
+    .glassmorphic-section {
+      background-image: url('https://i.pinimg.com/originals/84/d8/7e/84d87eb7e536135161c55887d878d44b.gif');
+      background-size: cover;
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .glassmorphic-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(25px);
+      border-radius: 15px;
+      padding: 30px;
+      max-width: 400px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Adding box shadow */
+    }
+
+    .glassmorphic-container h2 {
+      color: #FE4EDA;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+      margin-right: 20px;
+    }
+
+    .input-group input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      color :#7873f5;
+    }
+
+    .login-button {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 8px;
+      border: 2px solid #fff;
+      border-radius: 15px;
+      background: linear-gradient(to right, #ff6ec4, #c5e1f7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, color 0.3s;
+      display: block;
+      width: 100%;
+    }
+
+    .login-button:hover {
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+    }
+
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+
+    /* Password Strength Meter */
+    #passwordStrengthMeter {
+      width: 100%;
+      height: 15px;
+      margin-bottom: 10px;  
+      background-color: white;
+
+    }
+
+    /* JavaScript for Password Strength Meter */
+    #passwordStrengthMeter::-webkit-progress-value {
+  background: linear-gradient(to right ,#9b59b6, #ff6ec4, #7873f5 );
+
+}
+    /* Spinner */
+    .spinner {
+      display: none;
+    }
+
+    /* CSS for Remember Me checkbox */
+input[type="checkbox"]#rememberMe {
+  width: 20px; /* Adjust size of the checkbox */
+  height: 20px;
+  margin-right: 10px; 
+  margin-bottom: 10px ;
+  color: white;
+}
+
+label[for="rememberMe"] {
+  display: inline-block; /* Make label inline with the checkbox */
+  vertical-align: middle; /* Align label vertically with the checkbox */
+  color : #ff6ec4;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+ 
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/menuSuggestion">Menu Suggestions</a></li>
+        <li><a href="/performance">Performance Volunteer</a></li>
+        <li><a href="/budgetTracking">Budget Tracking</a></li>
+        <li><a href="/taskAssignment">Task Assignment</a></li>
+        <li><a href="/attendenceTracking">Attendance Tracking</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/teacherRegistration">Teachers Registration</a></li>
+        <li><a href="/invitation">Invitations</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Glassmorphic Login Container -->
+  <section class="glassmorphic-section">
+    <div class="container">
+      <div class="glassmorphic-container">
+        <h2>Login to Farewell Party Management System</h2>
+        <form id="loginForm" action="/loginForm" method="POST">
+          <div class="input-group">
+            <input type="text" id="username" name="username" placeholder="Username" required>
+          </div>
+          <div class="input-group">
+            <input type="password" id="password" name="password" placeholder="Password" required>
+          </div>
+          <progress id="passwordStrengthMeter" value="0" max="100"></progress>
+          <div class="input-group">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <label for="rememberMe">Remember Me</label>
+          </div>
+          <div class="error" id="loginError"></div>
+          <button type="submit" class="login-button">Login</button>
+          <div class="spinner" id="spinner">Loading...</div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('loginForm');
+  const usernameInput = document.getElementById('username');
+  const passwordInput = document.getElementById('password');
+  const errorDiv = document.getElementById('loginError');
+  const spinner = document.getElementById('spinner');
+  const passwordStrengthMeter = document.getElementById('passwordStrengthMeter');
+  const rememberMeCheckbox = document.getElementById('rememberMe');
+  const loginButton = document.querySelector('.login-button');
+
+  // Real-time validation for username
+  usernameInput.addEventListener('input', function() {
+    const username = usernameInput.value.trim();
+    if (username.length !== 5) {
+      usernameInput.setCustomValidity('Username must be 5 characters long');
+    } else {
+      usernameInput.setCustomValidity('');
+    }
+  });
+
+  // Real-time validation and password strength meter for password
+  passwordInput.addEventListener('input', function() {
+    const password = passwordInput.value.trim();
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    if (!passwordRegex.test(password)) {
+      passwordInput.setCustomValidity('Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character');
+    } else {
+      passwordInput.setCustomValidity('');
+    }
+
+    // Update password strength meter
+    const strength = calculatePasswordStrength(password);
+    passwordStrengthMeter.value = strength;
+  });
+
+  function calculatePasswordStrength(password) {
+    let strength = 0;
+
+    if (password.length >= 8) {
+      strength += 20;
+    }
+
+    const complexityRegex = /[@$!%*?&]/;
+    if (complexityRegex.test(password)) {
+      strength += 20;
+    }
+
+    const uppercaseRegex = /[A-Z]/;
+    if (uppercaseRegex.test(password)) {
+      strength += 20;
+    }
+
+    const lowercaseRegex = /[a-z]/;
+    if (lowercaseRegex.test(password)) {
+      strength += 20;
+    }
+
+    const numbersRegex = /[0-9]/;
+    if (numbersRegex.test(password)) {
+      strength += 20;
+    }
+
+    return strength;
+  }
+
+  rememberMeCheckbox.addEventListener('change', function() {
+    if (this.checked) {
+      localStorage.setItem('rememberedUsername', usernameInput.value);
+      localStorage.setItem('rememberedPassword', passwordInput.value);
+    } else {
+      localStorage.removeItem('rememberedUsername');
+      localStorage.removeItem('rememberedPassword');
+    }
+  });
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault();
+    spinner.style.display = 'inline-block';
+
+    const username = usernameInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    if (username.length !== 5) {
+      errorDiv.textContent = 'Username must be 5 characters long';
+      spinner.style.display = 'none';
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{6,}$/;
+    if (!passwordRegex.test(password)) {
+      errorDiv.textContent = 'Password must contain at least 1 uppercase letter, 1 lowercase letter, 1 number, 1 special character';
+      spinner.style.display = 'none';
+      return;
+    }
+
+    setTimeout(() => {
+      if (username === 'admin' && password === 'Admin@123') {
+        usernameInput.value = '';
+        passwordInput.value = '';
+        errorDiv.textContent = '';
+        spinner.style.display = 'none';
+  
+      } else {
+        errorDiv.textContent = 'Invalid username or password';
+        spinner.style.display = 'none';
+      }
+    }, 1000);
+  });
+
+  // Add event listener to login button for redirection
+  loginButton.addEventListener('click', function(event) {
+    event.preventDefault();
+    {
+      window.location.href = '/registration';
+    }
+  });
+});
+
+
+   
+  </script>
+</body>
+</html>

@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farewell Party Management System</title>
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+    }
+     
+    .logo {
+  font-family: 'Pacifico', cursive; 
+  font-size: 27px; /* Increased font size for better visibility */
+  color: transparent; /* Transparent text color */
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: 'Farewell Party';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #ff6ec4; /* Pink color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+.logo::after {
+  content: 'Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #7873f5; /* Purple color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+  animation-delay: 0.75s; /* Delay for second animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4; /* Pink glow */
+  }
+  to {
+    text-shadow: 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #ff6ec4; /* Intense pink glow */
+  }
+}
+
+
+    /* Navigation Bar Styles */
+    nav {
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-top:8px;
+      margin-left: 12px;
+      margin-left: 12px 20px;
+      
+    }
+
+    .nav-links li a {
+
+      text-decoration: none;
+      color: #fff; /* Changed text color to white */
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 10px; /* Added border radius */
+      background: linear-gradient(to right, #ff6ec4, #7873f5); /* Added gradient */
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Adding box shadow */
+      font-size: 15px; /* Smaller font size */
+      border: 2px solid #fff; /* White border */
+    }
+
+    .nav-links li a:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4); /* Gradient on hover */
+    }
+
+
+    /* Welcome Message Section Styles */
+    .welcome-section {
+      background-image: url('https://i.pinimg.com/originals/70/1c/4f/701c4f418e5d1bb0b278aea50296c568.gif'); /* Added background image */
+      background-size: centre;
+      background-attachment: fixed; /* Background image does not scroll with the page */
+      height:  99vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .welcome-container {
+      max-width: 600px;
+    }
+
+    .welcome-container h2 {
+  font-size: 170px;
+  font-weight: bolder;
+  margin-bottom: 20px;
+  color: white;
+  text-shadow: 0 0 10px #fd93d2, /* White glow shadow */
+               0 0 20px #fd93d2, /* Increase blur radius for thicker glow */
+               0 0 30px #fd93d2, /* Increase blur radius for thicker glow */
+               0 0 40px #fd93d2, /* Increase blur radius for thicker glow */
+               0 0 50px #fd93d2; /* Increase blur radius for thicker glow */
+}
+
+    .welcome-container p {
+      font-size: 20px;
+    
+    }
+
+    /* Highlights Section Styles */
+    .highlights-section {
+      padding: 50px 0;
+      text-align: center; 
+     
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0px 20px;
+    }
+
+    /* Menu Suggestions Section */
+    .menu-suggestions {
+      padding: 30px 0;
+      text-align: center;
+    }
+
+    .menu-container {
+      padding: 20px;
+      border-radius: 15px;
+      margin-bottom: 50px;
+      display: inline-block;
+      width: calc(33.33% - 40px); /* Adjust for margin and border */
+      margin-right: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      vertical-align: top; /* Align containers from the top */
+    }
+
+    .menu-container h3 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .menu-container img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .menu-container ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .menu-container li {
+      margin-bottom: 5px;
+    }
+
+    .menu-container p {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .menu-container .button-container {
+      text-align: center;
+    }
+
+    .menu-container button {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff6ec4;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .menu-container button:hover {
+      background-color: #7873f5;
+    }
+
+    .most-popular {
+      border: 2px solid #ff6ec4;
+    }
+
+    .add-menu-section {
+      background-image: url('https://i.pinimg.com/564x/e1/89/a8/e189a88b6e6c87d964af38bd3828f6a6.jpg');
+      background-size: cover;
+      background-position: center;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+      width: 60%;
+      margin: auto;
+    }
+
+    .add-menu-section h2 {
+      text-align: center;
+      color: #7873f5;;
+      text-shadow: 0 0 10px #fd93d2, /* White glow shadow */
+               0 0 20px #fd93d2, /* Increase blur radius for thicker glow */
+               0 0 30px #fd93d2, /* Increase blur radius for thicker glow */
+               0 0 40px #fd93d2, /* Increase blur radius for thicker glow */
+               0 0 50px #fd93d2; /* Increase blur radius for thicker glow */
+    }
+
+    .add-menu-section form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .add-menu-section label {
+      color: #7873f5;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .add-menu-section input[type="text"],
+    .add-menu-section select {
+      padding: 10px;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255, 255, 255, 0.2);
+      color: #7873f5;
+      box-shadow: inset 2px 2px 4px rgba(0, 0, 0, 0.2);
+    }
+
+    .add-menu-section button {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 8px;
+      border: 2px solid #fff;
+      border-radius: 15px;
+      background: linear-gradient(to right, #ff6ec4, #c5e1f7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, color 0.3s;
+      width: fit-content;
+      align-self: center;
+    }
+
+    .add-menu-section button:hover {
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+    }
+
+  </style>
+</head>
+<body>
+    <!-- Navigation Bar -->
+  <nav>
+    <div >
+        <!-- Updated Logo -->
+ <h1 class="logo">
+        
+        Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙
+      </h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/menuSuggestion">Menu Suggestions</a></li>
+        <li><a href="/performance">Performance Volunteer</a></li>
+        <li><a href="/budgetTracking">Budget Tracking</a></li>
+        <li><a href="/taskAssignment">Task Assignment</a></li>
+        <li><a href="/attendenceTracking">Attendance Tracking</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/teacherRegistration">Teachers Registration</a></li>
+        <li><a href="/invitation">Invitations</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <section class="welcome-section">
+  <div class="welcome-container">
+    <h2>Menu</h2>
+    
+  </div>
+</section>
+  <!-- Menu Suggestions Section -->
+  <section class="menu-suggestions">
+    <div class="container">
+      <!-- Continental Menu -->
+      <div class="menu-container" id="continental">
+        <h3>Continental Menu</h3>
+        <img src="https://i.pinimg.com/originals/fa/87/6f/fa876ffaf00c3a6645fe43a56aa10fe3.gif" alt="Continental Menu">
+        <ul>
+          <li>Chicken Cheesy Ball</li>
+          <li>Chicken Dynamite</li>
+          <li>Chicken Fried Rice</li>
+          <li>Beef Dry Chili</li>
+          <li>Grilled Chicken with Creamy Perry Sauce</li>
+          <!-- Add more items as needed -->
+        </ul>
+        <p>Rs.1360 per person</p>
+        <div class="button-container">
+          <button onclick="vote('continental')">Choose</button>
+        </div>
+      </div>
+      
+      <!-- Chinese Menu -->
+      <div class="menu-container" id="chinese">
+        <h3>Chinese Menu</h3>
+        <img src="https://i.pinimg.com/originals/de/f8/c3/def8c32218ff550de986ca3dfe09cac8.gif" alt="Chinese Menu">
+        <ul>
+          <li>Spring Rolls</li>
+          <li>Hot and Sour Soup</li>
+          <li>Kung Pao Chicken</li>
+          <li>Beef with Broccoli</li>
+          <li>Shrimp Chow Mein</li>
+          <!-- Add more items as needed -->
+        </ul>
+        <p>Rs.1400 per person</p>
+        <div class="button-container">
+          <button onclick="vote('chinese')">Choose</button>
+        </div>
+      </div>
+      <!-- Desi Menu -->
+      <div class="menu-container" id="desi">
+        <h3>Desi Menu</h3>
+        <img src="https://i.pinimg.com/564x/77/42/27/77422780ab49f9be9fd2ba41b7b755d4.jpg" alt="Desi Menu">
+        <ul>
+          <li>Mutton Pulao</li>
+          <li>Chicken Korma</li>
+          <li>Jumbo Prawns</li>
+          <li>Chicken Reshmi Kabab</li>
+          <li>Chicken Boti Tikka</li>
+          <!-- Add more items as needed -->
+        </ul>
+        <p>Rs.1390 per person</p>
+        <div class="button-container">
+          <button onclick="vote('desi')">Choose</button>
+        </div>
+      </div>
+    </div>
+  </section>
+    <!-- Form for Dynamic Menu Addition -->
+    <section class="add-menu-section">
+        <h2>Add Menu Item</h2>
+        <form id="addMenuForm"  action="/menuSuggestionForm" method="POST">
+          <label for="menuType">Menu Type:</label>
+          <select id="menuType" name="menuType">
+            <option value="continental">Continental</option>
+            <option value="chinese">Chinese</option>
+            <option value="desi">Desi</option>
+          </select><br><br>
+          <label for="items">Item Names (One per line):</label><br>
+          <textarea id="items" name="items" rows="4" cols="50"></textarea><br><br>
+          <label for="price">Price:</label>
+          <input type="text" id="price" name="price"><br><br>
+          <button type="submit">Add Item</button>
+        </form>
+        
+      </section>
+    
+      <script>
+        // Function to handle voting
+function vote(menuType) {
+  // Increment the vote count for the selected menu type
+  let menuVotes = parseInt(localStorage.getItem(menuType)) || 0;
+  menuVotes++;
+  localStorage.setItem(menuType, menuVotes);
+
+  // Update the button text
+  loadVotesAndUpdateButtons();
+}
+
+// // Function to load existing votes and update button text
+// function loadVotesAndUpdateButtons() {
+//   // Get the menu containers
+//   const menuContainers = document.querySelectorAll('.menu-container');
+
+//   // Initialize total votes
+//   let totalVotes = 0;
+
+//   // Iterate over menu containers and display the number of votes
+//   menuContainers.forEach(container => {
+//     const menuType = container.id;
+//     const votes = parseInt(localStorage.getItem(menuType)) || 0;
+//     const voteButton = container.querySelector('button');
+
+//     // Update the button text to include the number of votes
+//     voteButton.innerText = `Choose (${votes} votes)`;
+
+//     // Update total votes
+//     totalVotes += votes;
+//   });
+
+//   // Display total votes
+//   document.getElementById('totalVotes').innerText = `Total votes: ${totalVotes}`;
+// }
+
+// // Load existing votes and update buttons on page load
+// window.onload = function() {
+//   loadVotesAndUpdateButtons();
+// }
+
+// // Function to handle form submission for adding a new menu item
+// document.getElementById('addMenuForm').addEventListener('submit', function(event) {
+//   event.preventDefault();
+
+  // Get form values
+  // const menuType = document.getElementById('menuType').value;
+  // const items = document.getElementById('items').value.split('\n').filter(item => item.trim() !== ''); // Split by new line and remove empty items
+  // const price = document.getElementById('price').value;
+
+  // // Create new menu container
+  // const container = document.createElement('div');
+  // container.classList.add('menu-container');
+  // container.id = menuType.toLowerCase(); // Ensure the ID is lowercase
+
+  // // Create HTML content for the container
+  // let htmlContent = `
+  //   <h3>${menuType} Menu</h3>
+  //   <ul>
+  // `;
+  // items.forEach(item => {
+  //   htmlContent += `<li>${item}</li>`;
+  // });
+  // htmlContent += `
+  //   </ul>
+  //   <p>Price: ${price} per person</p>
+  //   <div class="button-container">
+  //     <button onclick="vote('${menuType.toLowerCase()}')">Choose</button>
+  //   </div>
+  // `;
+
+  // // Set the HTML content for the container
+  // container.innerHTML = htmlContent;
+
+  // // Append the container to the menu suggestions section
+  // document.querySelector('.container').appendChild(container);
+
+  // // Reset form fields
+  // document.getElementById('items').value = '';
+  // document.getElementById('price').value = '';
+
+  // // Display a confirmation message for 3 seconds
+  // const confirmationMessage = document.createElement('div');
+  // confirmationMessage.innerText = 'Menu item added successfully!';
+  // document.body.appendChild(confirmationMessage);
+  // setTimeout(() => {
+  //   confirmationMessage.remove();
+  // }, 3000);
+//});
+
+
+  </script>
+    
+</body>
+</html>

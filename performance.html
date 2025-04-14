@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farewell Party Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Musicals&display=swap">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .logo {
+  font-family: 'Pacifico', cursive; 
+  font-size: 27px; /* Increased font size for better visibility */
+  color: transparent; /* Transparent text color */
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: 'Farewell Party';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #ff6ec4; /* Pink color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+.logo::after {
+  content: 'Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #7873f5; /* Purple color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+  animation-delay: 0.75s; /* Delay for second animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4; /* Pink glow */
+  }
+  to {
+    text-shadow: 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #ff6ec4; /* Intense pink glow */
+  }
+}
+    
+    /* Navigation Bar Styles */
+    nav {
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 15px;
+      border: 2px solid #fff;
+    }
+
+    .nav-links li a:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+    /* Welcome Message Section Styles */
+    .welcome-section {
+      background-image: url('https://i.pinimg.com/originals/97/78/9e/97789e8395f0b64f804ddb988a43e952.gif');
+      background-size: cover;
+      background-attachment: fixed;
+      height:  99vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .welcome-container {
+      max-width: 600px;
+    }
+
+    .welcome-container h2 {
+      font-size: 120px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 10px #fd93d2,
+                   0 0 20px #fd93d2,
+                   0 0 30px #fd93d2,
+                   0 0 40px #fd93d2,
+                   0 0 50px #fd93d2;
+    }
+
+    .welcome-container p {
+      font-size: 40px;
+    }
+
+   
+
+    /* Performance Container Styles */
+    .performance-container {
+      margin-top: 60px;
+      text-align: center;
+      font-family: 'Musicals', cursive;
+      color :#7873f5;
+      font-weight: bold;
+    }
+
+    .performance-item {
+  background-image: url('https://i.pinimg.com/564x/12/e3/c1/12e3c13a5f1963e73f3a51f0e8e68deb.jpg');
+  padding: 20px;
+  background-repeat:  no-repeat;
+  margin-bottom: 70px;
+  margin-left: 30px;
+  margin-right: 30px;
+  background-size: cover;
+  background-attachment: fixed;
+  border-radius: 10px;
+  box-shadow: 0 0 20px #ff6ec4;
+}
+
+
+    /* Submit Button Styles */
+    #submit-btn {
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      border: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 15px 80px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    #submit-btn:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+    .vote-btn {
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #ff6ec4;
+      color: #fff;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .vote-btn:hover {
+      background-color: #7873f5;
+    }
+    /* Audition Section Styles */
+.audition-section {
+  text-align: center;
+  padding: 60px 0;
+  background-image: url("https://i.pinimg.com/originals/b5/d1/33/b5d133200ff4ddcfccc6f0a1756e394b.gif");
+  background-repeat:  no-repeat;
+  background-size: cover;
+}
+
+.audition-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-image: url('https://i.pinimg.com/564x/c7/1f/8c/c71f8cfd577ec72eabab2f6d4c1abcba.jpg'); /* Replace with your image URL */
+  background-size: cover;
+  padding: 30px;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.audition-container h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  color: black;
+  text-shadow: 0 0 10px  white,
+                   0 0 20px white,
+                   0 0 30px white,
+                   0 0 40px white,
+                   0 0 50px white;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  color: black;
+  text-shadow: 0 0 10px  white,
+                   0 0 20px white,
+                   0 0 30px white,
+                   0 0 40px white,
+                   0 0 50px white;
+}
+
+input[type="text"],
+select {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #7873f5;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  background: linear-gradient(to right, #ff6ec4, #7873f5);
+  border: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 15px 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s;
+}
+
+button[type="submit"]:hover {
+  background: linear-gradient(to right, #7873f5, #ff6ec4);
+}
+
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/menuSuggestion">Menu Suggestions</a></li>
+        <li><a href="/performance">Performance Volunteer</a></li>
+        <li><a href="/budgetTracking">Budget Tracking</a></li>
+        <li><a href="/taskAssignment">Task Assignment</a></li>
+        <li><a href="/attendenceTracking">Attendance Tracking</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/teacherRegistration">Teachers Registration</a></li>
+        <li><a href="/invitation">Invitations</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-container">
+      <h2>Performance</h2>
+    </div>
+  </section>
+
+  <section class="performance-container">
+    <div class="performance-item">
+      <h3>Bollywood Dance</h3>
+      <p>A vibrant and energetic dance performance showcasing popular Bollywood songs and choreography.</p>
+      <button class="vote-btn" data-type="Bollywood Dance">Vote</button>
+    </div>
+    <div class="performance-item">
+      <h3>Acoustic Music</h3>
+      <p>An intimate musical performance featuring acoustic renditions of classic and contemporary songs.</p>
+      <button class="vote-btn" data-type="Acoustic Music">Vote</button>
+    </div>
+    <div class="performance-item">
+      <h3>Magic Show</h3>
+      <p>A mesmerizing display of illusions, sleight of hand, and mind-bending tricks performed by a skilled magician.</p>
+      <button class="vote-btn" data-type="Magic Show">Vote</button>
+    </div>
+    <!-- Add more performance items here -->
+    <button id="submit-btn">Submit</button>
+  </section>
+
+  <!-- Audition Section -->
+<section class="audition-section">
+  <div class="audition-container">
+    <h2>Audition for Performance</h2>
+    <form id="audition-form" action="/performanceForm" method="POST">
+      <div class="form-group">
+        <label for="performance-type">Performance Type:</label>
+        <select id="performance-type" name="performancetype">
+          <option value="Bollywood Dance">Bollywood Dance</option>
+          <option value="Acoustic Music">Acoustic Music</option>
+          <option value="Magic Show">Magic Show</option>
+          <option value="Theater Performance">Theater Performance</option>
+          <option value="Stand-up Comedy">Stand-up Comedy</option>
+          <option value="Fashion Show">Fashion Show</option>
+          <!-- Add more performance types here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="duration">Duration:</label>
+        <select id="duration" name="duration">
+          <option value="Short">Short (less than 5 minutes)</option>
+          <option value="Medium">Medium (5-10 minutes)</option>
+          <option value="Long">Long (more than 10 minutes)</option>
+          <option value="Custom">Custom (specify in comments)</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="dance-style">Dance Style(s) Known:</label>
+        <select id="dance-style" name="dancestyle">
+          <option value="Hip Hop">Hip Hop</option>
+          <option value="Contemporary">Contemporary</option>
+          <option value="Ballet">Ballet</option>
+          <option value="Jazz">Jazz</option>
+          <option value="Tap Dance">Tap Dance</option>
+          <!-- Add more dance styles here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="acting-type">Acting/Drama Type:</label>
+        <select id="acting-type" name="actingtype">
+          <option value="Comedy">Comedy</option>
+          <option value="Drama">Drama</option>
+          <option value="Musical">Musical</option>
+          <option value="Thriller">Thriller</option>
+          <option value="Mystery">Mystery</option>
+          <!-- Add more acting/drama types here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="instruments-played">Instruments Played:</label>
+        <input type="text" id="instruments-played" name="instrumentsplayed" placeholder="e.g. Guitar, Piano">
+      </div>
+      <div class="form-group">
+        <label for="vocal-range">Vocal Range:</label>
+        <select id="vocal-range" name="vocalrange">
+          <option value="Soprano">Soprano</option>
+          <option value="Alto">Alto</option>
+          <option value="Tenor">Tenor</option>
+          <option value="Bass">Bass</option>
+          <!-- Add more vocal ranges here -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="language">Language Proficiency:</label>
+        <input type="text" id="language" name="language" placeholder="e.g. English, Spanish">
+      </div>
+      <!-- Add more categories and requirements -->
+      <button type="submit" id="audition-submit-btn">Submit Audition</button>
+    </form>
+  </div>
+</section>
+
+
+  <script>
+   document.addEventListener('DOMContentLoaded', function() {
+  const voteButtons = document.querySelectorAll('.vote-btn');
+  const submitButton = document.getElementById('audition-submit-btn');
+  const auditionForm = document.getElementById('audition-form');
+  const modal = document.getElementById('confirmation-modal');
+
+  voteButtons.forEach(button => {
+    button.addEventListener('click', function() {
+      const performanceType = this.getAttribute('data-type');
+      alert(`Thank you for your performance suggestion for "${performanceType}"!`);
+    });
+  });
+
+  auditionForm.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get form data
+    const formData = new FormData(this);
+    const auditionData = {};
+    formData.forEach((value, key) => {
+      auditionData[key] = value;
+    });
+
+    // Validate form data (you can add more validation logic as needed)
+    if (validateAuditionForm(auditionData)) {
+      // Simulate form submission (you can replace this with actual submission logic)
+      setTimeout(function() {
+        // Clear form inputs
+        auditionForm.reset();
+        alert('Thank you for your audition!');
+      }, 5000);
+    }
+  });
+
+  function validateAuditionForm(data) {
+    // Example validation (you can customize this based on your requirements)
+    if (data['performance-type'] === '' || data['duration'] === '') {
+      showModal('Please fill in all required fields.');
+      return false;
+    }
+    return true;
+  }
+
+  function showModal(message) {
+    const modalContent = document.getElementById('modal-content');
+    modalContent.textContent = message;
+    modal.style.display = 'block';
+
+    // Close the modal when the user clicks outside of it
+    window.addEventListener('click', function(event) {
+      if (event.target === modal) {
+        modal.style.display = 'none';
+      }
+    });
+
+    // Close the modal when the user presses the Escape key
+    window.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        modal.style.display = 'none';
+      }
+    });
+  }
+
+
+});
+
+  </script>
+</body>
+</html>

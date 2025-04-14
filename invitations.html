@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farewell Party Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Musicals&display=swap">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .logo {
+  font-family: 'Pacifico', cursive; 
+  font-size: 27px; /* Increased font size for better visibility */
+  color: transparent; /* Transparent text color */
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: 'Farewell Party';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #ff6ec4; /* Pink color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+.logo::after {
+  content: 'Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #7873f5; /* Purple color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+  animation-delay: 0.75s; /* Delay for second animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4; /* Pink glow */
+  }
+  to {
+    text-shadow: 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #ff6ec4; /* Intense pink glow */
+  }
+}
+    
+    /* Navigation Bar Styles */
+    nav {
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 15px;
+      border: 2px solid #fff;
+    }
+
+    .nav-links li a:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+  /* Welcome Message Section Styles */
+.welcome-section {
+  background-image: url('https://i.pinimg.com/originals/51/aa/24/51aa24cc1078e678d0928c04bf6dfa7c.gif'); /* Added background image */
+  background-size: contain; /* Adjusted */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-position: center;
+  height: 99vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background-color:rgb(220, 120, 220);
+}
+    .welcome-container {
+      max-width: 600px;
+    }
+
+    .welcome-container h2 {
+      font-size: 120px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 10px #7873f5,
+                   0 0 20px #7873f5,
+                   0 0 30px #7873f5,
+                   0 0 40px #7873f5,
+                   0 0 50px #7873f5;
+    }
+
+    .welcome-container p {
+      font-size: 40px;
+    }
+
+    .invitation-form-section {
+  padding: 50px 20px;
+  background-image: url('https://i.pinimg.com/originals/9a/02/f1/9a02f1d620d4a65bee197a69ee1d6a1b.gif'); /* Added background image */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.invitation-form-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background-color:transparent;
+  border: 5px solid#f0f0f0;
+  border-radius: 20px;
+  box-shadow: 0 0 50px #7873f5;
+  padding: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  color: white;
+  margin: 7px auto ; 
+  text-shadow: 0 0 10px #7873f5,
+                   0 0 20px #7873f5,
+                   0 0 30px #7873f5,
+                   0 0 40px #7873f5,
+                   0 0 50px #7873f5;
+}
+
+select,
+input[type="text"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 5px;
+  border: 2px solid #7873f5;
+  font-size: 16px;
+  border-radius: 20px;
+}
+
+select[multiple] {
+  height: 80px; /* Adjust height for multiple selection */
+}
+
+button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #ff6ec4;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+  background-color: #7873f5;
+}
+
+.section-heading {
+  font-size: 28px;
+  color: white;
+  text-shadow: 0 0 10px #7873f5,
+                   0 0 20px #7873f5,
+                   0 0 30px #7873f5,
+                   0 0 40px #7873f5,
+                   0 0 50px #7873f5;
+    
+  margin-bottom: 20px;
+}
+
+/* Invitations Display Section Styles */
+#invitations-display-section {
+  padding: 50px 20px;
+  background-image: url('https://i.pinimg.com/originals/9a/02/f1/9a02f1d620d4a65bee197a69ee1d6a1b.gif');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.invitation-display-container {
+  display: flex;
+  flex-wrap: wrap; /* Allows containers to wrap to the next row */
+  justify-content: center;
+}
+
+.invitation-display-container .invitation-form-container {
+  margin: 10px;
+  background-color: transparent;
+  border: 5px solid #f0f0f0;
+  border-radius: 20px;
+  box-shadow: 0 0 50px #7873f5;
+  padding: 20px;
+}
+
+/* Standard Heading Style */
+.invitation-display-container .section-heading {
+  font-size: 28px;
+  color: white;
+  text-shadow: 0 0 10px #7873f5, 0 0 20px #7873f5, 0 0 30px #7873f5, 0 0 40px #7873f5, 0 0 50px #7873f5;
+  margin-bottom: 20px;
+}
+
+/* Submit/Send Button Style */
+.invitation-display-container button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #ff6ec4;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  border: 2px solid #fff; /* White glowing border */
+  box-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px #fff; /* White glowing shadow */
+}
+
+.invitation-display-container button[type="submit"]:hover {
+  background-color: #7873f5;
+}
+
+
+
+
+
+   
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/menuSuggestion">Menu Suggestions</a></li>
+        <li><a href="/performance">Performance Volunteer</a></li>
+        <li><a href="/budgetTracking">Budget Tracking</a></li>
+        <li><a href="/taskAssignment">Task Assignment</a></li>
+        <li><a href="/attendenceTracking">Attendance Tracking</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/teacherRegistration">Teachers Registration</a></li>
+        <li><a href="/invitation">Invitations</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Welcome Section -->
+  <section class="welcome-section">
+    <div class="welcome-container">
+      <h2>Invitations</h2>
+    </div>
+  </section>
+<!-- Invitation Form Section -->
+<section class="invitation-form-section">
+  <h2 class="section-heading">Create Invitation</h2>
+  <div class="invitation-form-container">
+    
+    <form action="/invitationForm" method="POST">
+      <div class="form-group">
+        <label for="recipient">Recipient:</label>
+        <select name="recipient" id="recipient">
+          <option value="student">Student</option>
+          <option value="faculty">Faculty</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="batch">Batch Farewell:</label>
+        <select name="batch" id="batch">
+          <option value="2023">Batch 2023</option>
+          <option value="2024">Batch 2024</option>
+          <option value="2025">Batch 2025</option>
+          <!-- Add more options if needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="venue">Venue:</label>
+        <select name="venue" id="venue" size="4">
+          <option value="auditorium">Auditorium</option>
+          <option value="garden">Garden</option>
+          <option value="rooftop">Rooftop</option>
+          <option value="hall">Hall</option>
+          <!-- Add more options if needed -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="timing">Timing:</label>
+        <input type="text" id="timing" name="timing" placeholder="Enter timing...">
+      </div>
+      <div class="form-group">
+        <label for="dress_code">Dress Code Theme:</label>
+        <select name="dresscode" id="dress_code" multiple>
+          <option value="retro">Retro</option>
+          <option value="formal">Formal</option>
+          <option value="casual">Casual</option>
+          <option value="ethnic">Ethnic</option>
+          <!-- Add more options if needed -->
+        </select>
+      </div>
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+</section>
+<!-- Invitations Display Section -->
+<section id="invitations-display-section">
+  <div class="invitation-display-container">
+    <h2 class="section-heading">Display Invitation</h2>
+    
+  </div>
+</section>
+
+
+<script>
+ document.addEventListener("DOMContentLoaded", function() {
+  const form = document.querySelector('form');
+
+  form.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent form submission
+
+    // Get form data
+    const recipient = document.getElementById('recipient').value;
+    const batch = document.getElementById('batch').value;
+    const venue = document.getElementById('venue').value;
+    const timing = document.getElementById('timing').value;
+    const dressCode = [...document.getElementById('dress_code').selectedOptions].map(option => option.value);
+
+    // Create invitation section
+    const invitationSection = document.createElement('section');
+    invitationSection.classList.add('invitation-form-section');
+
+    // Create invitation container
+    const invitationContainer = document.createElement('div');
+    invitationContainer.classList.add('invitation-form-container');
+
+    // Create invitation content
+    const invitationContent = document.createElement('div');
+
+    // Standard heading
+    const heading = document.createElement('h2');
+    heading.classList.add('section-heading');
+    heading.textContent = `Invitation for ${recipient} of Batch ${batch}`;
+
+    // Invitation welcome paragraph
+    const welcomeParagraph = document.createElement('p');
+    welcomeParagraph.textContent = `Dear ${recipient}, you are cordially invited to the farewell party of Batch ${batch}. 
+    The party will be held at ${venue} on ${timing}. The dress code theme is ${dressCode.join(', ')}.`;
+    welcomeParagraph.style.color = 'white'; // Set text color to white
+    welcomeParagraph.style.textShadow = '0 0 10px #7873f5, 0 0 20px #7873f5, 0 0 30px #7873f5, 0 0 40px #7873f5, 0 0 50px #7873f5'; // Add purple glow
+
+   // Send button
+const sendButton = document.createElement('button');
+sendButton.textContent = 'Send';
+sendButton.style.borderRadius = '30px'; // Add border radius
+sendButton.style.backgroundColor = '#ff6ec4'; // Set background color
+sendButton.style.padding = '15px 30px'; // Increase padding
+sendButton.style.fontSize = '20px'; // Increase font size
+sendButton.style.color = 'white'; // Set text color to white
+sendButton.style.textShadow = '0 0 5px pink'; // Add white text shadow
+sendButton.style.boxShadow = '0 0 20px rgba(0, 0, 0, 0.3)'; // Add box shadow
+
+    // Add hover effect
+    sendButton.addEventListener('mouseover', function() {
+      sendButton.style.backgroundColor = '#7873f5'; // Change background color on hover
+    });
+
+    sendButton.addEventListener('mouseout', function() {
+      sendButton.style.backgroundColor = '#ff6ec4'; // Revert back on mouseout
+    });
+
+    // Append content to invitation container
+    invitationContainer.appendChild(heading);
+    invitationContainer.appendChild(welcomeParagraph);
+    invitationContainer.appendChild(sendButton);
+
+    // Append invitation container to invitation section
+    invitationSection.appendChild(invitationContainer);
+
+    // Append invitation section to document
+    document.body.appendChild(invitationSection);
+  });
+});
+
+</script>
+</body>
+</html>
+
+  
+
+
+   

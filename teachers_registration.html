@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farewell Party Management System</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Musicals&display=swap">
+  <style>
+    /* General Styles */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #f0f0f0;
+    }
+
+    .logo {
+  font-family: 'Pacifico', cursive; 
+  font-size: 27px; /* Increased font size for better visibility */
+  color: transparent; /* Transparent text color */
+  display: flex;
+  align-items: center;
+}
+
+.logo::before {
+  content: 'Farewell Party';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #ff6ec4; /* Pink color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+}
+
+.logo::after {
+  content: 'Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙';
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: -1;
+  color: #7873f5; /* Purple color */
+  animation: glow 1.5s ease-in-out infinite alternate; /* Animation */
+  animation-delay: 0.75s; /* Delay for second animation */
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 5px #ff6ec4, 0 0 10px #ff6ec4, 0 0 15px #ff6ec4; /* Pink glow */
+  }
+  to {
+    text-shadow: 0 0 10px #ff6ec4, 0 0 15px #ff6ec4, 0 0 20px #ff6ec4; /* Intense pink glow */
+  }
+}
+    
+    /* Navigation Bar Styles */
+    nav {
+      padding: 10px 0;
+      position: fixed;
+      width: 100%;
+      z-index: 1000;
+    }
+
+    .nav-links {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      display: inline;
+      margin-top: 10px;
+      margin-left: 20px;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 10px;
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      font-size: 15px;
+      border: 2px solid #fff;
+    }
+
+    .nav-links li a:hover {
+      background: linear-gradient(to right, #7873f5, #ff6ec4);
+    }
+
+    /* Welcome Message Section Styles */
+    .welcome-section {
+      background-image: url('https://i.pinimg.com/originals/62/1f/82/621f8226534f9bfc8f6b28dd47a7158d.gif');
+      background-size: cover;
+      background-attachment: fixed;
+      height:  99vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #fff;
+    }
+
+    .welcome-container {
+      max-width: 600px;
+    }
+
+    .welcome-container h2 {
+      font-size: 120px;
+      font-weight: bolder;
+      margin-bottom: 20px;
+      color: white;
+      text-shadow: 0 0 10px #fd93d2,
+                   0 0 20px #fd93d2,
+                   0 0 30px #fd93d2,
+                   0 0 40px #fd93d2,
+                   0 0 50px #fd93d2;
+    }
+
+    .welcome-container p {
+      font-size: 40px;
+    }
+     /* Glassmorphic Container */
+     .glassmorphic-section {
+        background-image: url('https://i.pinimg.com/564x/14/d1/9a/14d19a47627f8f95550624f865bfd59c.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-size: cover;
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 120vh;
+    }
+
+    .glassmorphic-container {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(25px);
+      border-radius: 15px;
+      padding: 50px;
+      max-width: 600px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .glassmorphic-container h2 {
+      color: #FE4EDA;
+      font-weight: bold;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .input-group {
+      margin-bottom: 20px;
+    }
+
+    .input-group input,
+    .input-group select {
+      width: calc(100% - 20px);
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      color: #7873f5;
+    }
+
+    .register-button {
+      text-decoration: none;
+      color: #fff;
+      font-weight: bold;
+      font-size: 20px;
+      padding: 5px;
+      border: 2px solid #fff;
+      border-radius: 15px;
+      background: linear-gradient(to right, #ff6ec4, #c5e1f7);
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      transition: background-color 0.3s, color 0.3s;
+      display: block;
+      width: 100%;
+    }
+
+    .register-button:hover {
+      background: linear-gradient(to right, #ff6ec4, #7873f5);
+    }
+
+    .error {
+      color: red;
+      margin-top: 5px;
+    }
+
+    .success {
+      color: green;
+      margin-top: 5px;
+    }
+
+   
+  </style>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <div class="container">
+      <h1 class="logo">Farewell Party ·͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙⁺˚*•̩̩͙✩•̩̩͙*˚⁺‧͙</h1>
+      <ul class="nav-links">
+        <li><a href="/">Home</a></li>
+        <li><a href="/menuSuggestion">Menu Suggestions</a></li>
+        <li><a href="/performance">Performance Volunteer</a></li>
+        <li><a href="/budgetTracking">Budget Tracking</a></li>
+        <li><a href="/taskAssignment">Task Assignment</a></li>
+        <li><a href="/attendenceTracking">Attendance Tracking</a></li>
+        <li><a href="/announcements">Announcements</a></li>
+        <li><a href="/teacherRegistration">Teachers Registration</a></li>
+        <li><a href="/invitation">Invitations</a></li>
+      </ul>
+    </div>
+  </nav>
+  <!-- Glassmorphic Container for Registration Form -->
+<section class="glassmorphic-section">
+    <div class="glassmorphic-container">
+      <h2>Teachers and Family Registration</h2>
+      <form id="registration-form" action="/teacherRegisterForm" method="POST">
+        <div class="input-group">
+          <label for="teacher-name">Teacher's Name:</label>
+          <input type="text" id="teacher-name" name="teachername" required>
+        </div>
+        <div class="input-group">
+          <label for="teacher-email">Email:</label>
+          <input type="email" id="teacher-email" name="teacheremail" required>
+        </div>
+        <div class="input-group">
+          <label for="family-members">Accompanying Family Members:</label>
+          <input type="number" id="family-members" name="familymembers" min="0" required>
+        </div>
+        <button type="submit" class="register-button">Register</button>
+      </form>
+      <div id="registration-feedback"></div>
+    </div>
+  </section>
+  
+  <script>
+    // Form submission handling with JavaScript
+    document.getElementById('registration-form').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent default form submission
+  
+      // Retrieve form data
+      const formData = new FormData(this);
+  
+      // Fetch form data as JSON
+      const jsonData = {};
+      formData.forEach((value, key) => {
+        jsonData[key] = value;
+      });
+  
+      // Client-side form validation
+      const teacherName = formData.get('teacher-name');
+      const teacherEmail = formData.get('teacher-email');
+      const familyMembers = parseInt(formData.get('family-members'));
+  
+      let isValid = true;
+      const errorMessages = [];
+  
+      // Validate teacher's name (required)
+      if (teacherName.trim() === '') {
+        isValid = false;
+        errorMessages.push("Please enter teacher's name.");
+      }
+  
+      // Validate email (required and correct format)
+      if (teacherEmail.trim() === '' || !isValidEmail(teacherEmail)) {
+        isValid = false;
+        errorMessages.push("Please enter a valid email address.");
+      }
+  
+      // Validate family members (non-negative number)
+      if (isNaN(familyMembers) || familyMembers < 0) {
+        isValid = false;
+        errorMessages.push("Please enter a non-negative number of family members.");
+      }
+  
+      // Display error messages or submit form
+      if (!isValid) {
+        document.getElementById('registration-feedback').innerHTML = "<p class='error'>" + errorMessages.join("<br>") + "</p>";
+      } else {
+        // Simulate form submission (You can replace this with actual form submission logic)
+        setTimeout(() => {
+          // Display thank you message
+          document.getElementById('registration-feedback').innerHTML = "<p class='success'>Thank you for registering!</p>";
+  
+          // Clear form
+          document.getElementById('registration-form').reset();
+        }, 1000);
+      }
+    });
+  
+    // Function to validate email format
+    function isValidEmail(email) {
+      // Regular expression for email validation
+      const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      return emailRegex.test(email);
+    }
+  </script>
+  
+  </body>
+  </html>
