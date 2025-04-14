@@ -78,21 +78,6 @@ The **Farewell Party Management System** is a dynamic web application designed t
 - ✅ MySQL `.sql` scripts
 - ✅ HTML & CSS Web Interface
 - ✅ Node.js Integration
-- ✅ Reports (Teachers, Students, Organizers)
-
----
-
-## 🚀 Bonus Points
-
-- Creative and interactive UI/UX.
-- Implementation of additional relevant use cases.
-- Real-time budget alerts.
-
----
-
-## 📣 Note
-
-> 📝 Hand-drawn ERD diagrams are **not** acceptable. Use a diagramming tool.
 
 ---
 
@@ -101,4 +86,3 @@ The **Farewell Party Management System** is a dynamic web application designed t
 For any queries or suggestions, feel free to open an issue or contribute via pull requests.
 
 ---
-
